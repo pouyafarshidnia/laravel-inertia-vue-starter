@@ -20,6 +20,7 @@ In addition to the standard Laravel + Vue setup, this starter kit includes:
 * **Unguarded Eloquent models** by default
 * Reusable **Modal component**
 * Reusable **Pagination component**
+* Reusable **DatePicker component**
 * Preconfigured development and setup commands
 
 ### Composer Scripts
