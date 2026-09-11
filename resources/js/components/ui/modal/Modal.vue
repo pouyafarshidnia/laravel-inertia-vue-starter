@@ -5,9 +5,11 @@ import { X, Eraser } from "@lucide/vue";
 defineProps({
     show: Boolean,
     label: String,
-    title: String,
+      title: String,
     erasable: { type: Boolean, default: false }
 });
+
+
 
 </script>
 
@@ -16,11 +18,13 @@ defineProps({
         enter-active-class="transition duration-300" leave-active-class="transition duration-200"
         leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-125">
 
-        <div v-if="show" class="fixed inset-0 z-20 bg-[#000000b2] grid place-items-center">
-            <div class="bg-white dark:bg-zinc-950 border dark:border-zinc-900 w-10/12 max-w-125 rounded-lg">
+        <div v-if="show" @click.self="$emit('close')"  class="fixed inset-0 z-50 grid place-items-center bg-black/60 p-4">
+            <div class="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl border border-zinc-200 bg-white dark:border-zinc-900 dark:bg-zinc-950">
 
                 <!-- Header -->
-                <div class="flex items-center justify-between p-3 border-b border-zinc-200 dark:border-zinc-900">
+                <div class="flex items-center justify-between "
+                :class="title ? 'border-b border-zinc-200 dark:border-zinc-900 p-3' : 'pr-3 pt-3'"
+                >
                     <h1 class="font-bold text-zinc-800 dark:text-zinc-300">{{ title }}</h1>
                     <div class="flex items-center gap-2">
                         <Eraser v-if="erasable" @click="$emit('erase')"
