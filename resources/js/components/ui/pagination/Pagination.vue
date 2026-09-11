@@ -30,12 +30,12 @@ function goToPage(url: string | null) {
 </script>
 
 <template>
-  <div v-if="list.last_page > 1" class="mt-4 flex items-center justify-between">
+  <div v-if="list.last_page > 1" class="mt-4 flex-col gap-3 lg:flex-row flex items-center justify-between">
     <p class="text-sm text-gray-500 dark:text-gray-400">
       Showing {{ list.from }} to {{ list.to }} of {{ list.total }} entries
     </p>
 
-    <div class="flex items-center gap-1">
+    <div class="flex flex-wrap justify-center lg:justify-end items-center gap-1">
       <PaginatePrev @go-page="goToPage" :url="prevUrl" />
       <PageNumbers @go-page="goToPage" :links="numbers" />
       <PaginateNext @go-page="goToPage" :url="nextUrl" />
