@@ -33,6 +33,10 @@ expect()->extend('toBeOne', function () {
     return $this->toBe(1);
 });
 
+expect()->extend('toBeZero', function () {
+    return $this->toBe(0);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Functions
